@@ -1,18 +1,18 @@
-Stroke Prediction Dataset Analysis and Machine Learning Modelling Introduction
+# Stroke Prediction Dataset Analysis and Machine Learning Modelling Introduction
 
 Stroke is one of the leading causes of death and disability worldwide. Predicting stroke occurrence based on various risk factors can help in early intervention and treatment. This report details the steps involved in Exploratory Data Analysis (EDA), data preprocessing, visualization, and machine learning modeling using the stroke prediction dataset.
 
-Dataset Overview:
+## Dataset Overview:
 
 The dataset includes various features such as demographic information, health conditions, lifestyle factors, and a target variable (stroke) indicating whether a person had a stroke (1) or not (0).
 
-1. Features:
+## 1. Features:
 
     • Numerical: age, avg_glucose_level, bmi
     • Categorical: gender, hypertension, heart_disease, ever_married, work_type, Residenc
     e_type, smoking_status, stroke
 
-2. Data Preprocessing:
+## 2. Data Preprocessing:
 
     * Several preprocessing steps were performed:
 
@@ -22,7 +22,7 @@ The dataset includes various features such as demographic information, health co
     • Outlier Transformation: bmi and avg_glucose_level were transformed using log
     normalization (log(x+1)) to handle skewness and normalize the distributions.
 
-Exploratory Data Analysis and Visualization
+## 3. Exploratory Data Analysis and Visualization
 
     * Numerical Feature Visualization:
 
@@ -42,20 +42,20 @@ Exploratory Data Analysis and Visualization
     • A Pie Chart was used to illustrate the imbalanced nature of the dataset, with a
     significant majority of the samples belonging to the stroke=0 class (people who did not have a stroke).
      
-3. Data Encoding and Scaling:
+## 4. Data Encoding and Scaling:
 
     * To prepare the data for modeling:
 
     • Label Encoding: Categorical variables were converted to numerical values using LabelEncoder.
     • Feature Scaling: MinMaxScaler was applied to ensure that all features are on the same scale, which is especially important for distance-based algorithms like K-Nearest Neighbors (KNN).
 
-4. Machine Learning Modeling:
+## 5. Machine Learning Modeling:
 
     * Decision Tree Classifier (Before Handling Imbalance):
 
     A Decision Tree Classifier was trained using a 75-25 train-test split. The model provided an accuracy score of 95%. However, due to the highly imbalanced dataset, the recall for the minority class (stroke=1) was zero, indicating that the model struggled to identify stroke cases accurately.
 
-5. Imbalanced Data Handling
+## 6. Imbalanced Data Handling
 
     To address the class imbalance,Synthetic Minority Over-sampling Technique (SMOTE) was applied, balancing the dataset by generating synthetic samples for the minority class (stroke=1). This ensures that the model can better learn the patterns associated with stroke cases.
 
@@ -76,6 +76,6 @@ Exploratory Data Analysis and Visualization
     • Accuracy: 87.2%
     • Recall: 96% - Better identification of stroke cases after resampling.
 
-Conclusion:
+## Conclusion:
 
 The initial analysis using a Decision Tree model showed strong accuracy, but failed to correctly identify stroke cases due to the imbalanced nature of the data. After applying SMOTE, both Decision Tree and KNN models showed improvements in recall, with KNN providing the best results in terms of both accuracy and recall, making it a better fit for this problem.
